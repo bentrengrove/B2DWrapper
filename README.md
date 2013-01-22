@@ -10,8 +10,5 @@ Enough to reproduce this tutorial Ray Wenderlich tutorial in Objective C (http:/
 Unsupported:
 Everything else
 
-Todo:
-Everthing
-Documentation
-Sample Project
-Tutorial
+Todo next:
+Joints, documentation, sample project and tutorial.
