@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "B2DBody.h"
+#import "B2DRevoluteJoint.h"
 
 @interface B2DWorld : NSObject
 {
@@ -15,9 +16,18 @@
 }
 
 - (id)initWithGravity:(B2DVec2)gravity;
-- (B2DBody*)createBody:(B2DBodyDef)bodyDef;
+
+- (B2DBody*)createBody:(const B2DBodyDef *)bodyDef;
+- (void)destoryBody:(B2DBody*)body;
+- (B2DJoint*)createJointOfType:(B2DJointType)type withDef:(const void *)voidDef;
+- (void)destroyJoint:(B2DJoint*)joint;
+
 - (void)stepWithDeltaTime:(double)dT velocityIterations:(int)velocityIterations positionIterations:(int)positionIterations;
+
+- (NSArray*)jointList;
 - (NSArray*)bodyList;
+
 - (void)setGravity:(B2DVec2)gravity;
+- (B2DVec2)gravity;
 
 @end

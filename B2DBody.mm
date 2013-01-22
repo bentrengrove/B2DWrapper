@@ -44,6 +44,11 @@
     _body->CreateFixture(&def);
 }
 
+- (void*)b2Body
+{
+    return _body;
+}
+
 - (void*)userData
 {
     return _body->GetUserData();
@@ -52,6 +57,11 @@
 - (B2DVec2)position
 {
     return B2DVec2Make(_body->GetPosition().x, _body->GetPosition().y);
+}
+
+- (double)angle
+{
+    return _body->GetAngle();
 }
 
 - (void)dealloc

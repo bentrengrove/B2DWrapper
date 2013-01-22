@@ -16,6 +16,7 @@
 #import "B2DCircleShape.h"
 #import "B2DFixture.h"
 #import "B2DBody.h"
+#import "B2DRevoluteJoint.h"
 
 #endif
 

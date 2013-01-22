@@ -104,8 +104,10 @@ static inline B2DBodyDef B2DBodyDefInit()
 }
 
 - (id)initWithB2Body:(void*)body;
+- (void*)b2Body;
 - (void)createFixture:(B2DFixtureDef)fixtureDef;
 - (void*)userData;
 - (B2DVec2)position;
+- (double)angle;
 
 @end
