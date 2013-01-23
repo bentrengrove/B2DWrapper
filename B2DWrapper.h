@@ -17,6 +17,7 @@
 #import "B2DFixture.h"
 #import "B2DBody.h"
 #import "B2DRevoluteJoint.h"
+#import "B2DContactListener.h"
 
 #endif
 

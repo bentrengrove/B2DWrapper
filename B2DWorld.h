@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "B2DBody.h"
 #import "B2DRevoluteJoint.h"
+#import "B2DContactListener.h"
 
 @interface B2DWorld : NSObject
 {
@@ -29,5 +30,7 @@
 
 - (void)setGravity:(B2DVec2)gravity;
 - (B2DVec2)gravity;
+
+- (void)setContactListener:(B2DContactListener*)listener;
 
 @end
