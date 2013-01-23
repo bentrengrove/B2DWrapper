@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "B2DBody.h"
 #import "B2DRevoluteJoint.h"
+#import "B2DContactListener.h"
 
 @interface B2DWorld : NSObject
 {
@@ -32,5 +33,7 @@
 
 - (void)setDebugDraw:(void*)debugDraw;
 - (void)drawDebugData;
+
+- (void)setContactListener:(B2DContactListener*)listener;
 
 @end

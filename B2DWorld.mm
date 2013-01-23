@@ -108,6 +108,7 @@
     [_jointList removeObject:joint];
 }
 
+
 #pragma mark - World methods
 
 - (void)stepWithDeltaTime:(double)dT velocityIterations:(int)velocityIterations positionIterations:(int)positionIterations
@@ -141,6 +142,11 @@
 
 #pragma mark - Properties
 
+- (void)setContactListener:(B2DContactListener*)listener
+{
+    b2ContactListener *l = (b2ContactListener*)[listener internalListener];
+    _world->SetContactListener(l);
+}
 
 - (void)setGravity:(B2DVec2)gravity
 {
