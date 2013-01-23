@@ -30,4 +30,7 @@
 - (void)setGravity:(B2DVec2)gravity;
 - (B2DVec2)gravity;
 
+- (void)setDebugDraw:(void*)debugDraw;
+- (void)drawDebugData;
+
 @end

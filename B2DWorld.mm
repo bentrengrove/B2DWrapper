@@ -127,7 +127,20 @@
     return [NSArray arrayWithArray:_jointList];
 }
 
+#pragma mark - Debug Drawing
+
+- (void)setDebugDraw:(void*)debugDraw
+{
+    _world->SetDebugDraw((b2Draw*)debugDraw);
+}
+
+- (void)drawDebugData
+{
+    _world->DrawDebugData();
+}
+
 #pragma mark - Properties
+
 
 - (void)setGravity:(B2DVec2)gravity
 {
