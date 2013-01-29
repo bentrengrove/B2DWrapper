@@ -106,8 +106,13 @@ static inline B2DBodyDef B2DBodyDefInit()
 - (id)initWithB2Body:(void*)body;
 - (void*)b2Body;
 - (void)createFixture:(B2DFixtureDef)fixtureDef;
+- (void)applyForceToCenter:(B2DVec2)force;
+- (void)applyForce:(B2DVec2)force toPoint:(B2DVec2)point;
+- (void)applyLinearImpulse:(B2DVec2)impulse toPoint:(B2DVec2)point;
+
 - (void*)userData;
 - (B2DVec2)position;
 - (double)angle;
+- (B2DVec2)worldCenter;
 
 @end
