@@ -11,6 +11,7 @@
 
 #if defined __cplusplus
 #include "Box2D.h"
+#include "B2DTypes.h"
 
 static b2Vec2 B2DVecToCPlusPlus(B2DVec2 vec);
 static inline b2Vec2 B2DVecToCPlusPlus(B2DVec2 vec)
