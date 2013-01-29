@@ -14,6 +14,7 @@
 #import "B2DShape.h"
 #import "B2DEdgeShape.h"
 #import "B2DCircleShape.h"
+#import "B2DPolygonShape.h"
 #import "B2DFixture.h"
 #import "B2DBody.h"
 #import "B2DRevoluteJoint.h"
