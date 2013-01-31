@@ -116,6 +116,17 @@
     _world->Step(dT, velocityIterations, positionIterations);
 }
 
+- (B2DBody*)bodyForB2Body:(void*)b2Body
+{
+    for (B2DBody *b in _bodyList) {
+        if ([b b2Body] == b2Body) {
+            return b;
+        }
+    }
+    
+    return nil;
+}
+
 #pragma mark - Lists
 
 - (NSArray*)bodyList
@@ -145,6 +156,7 @@
 - (void)setContactListener:(B2DContactListener*)listener
 {
     b2ContactListener *l = (b2ContactListener*)[listener internalListener];
+    listener.physicsWorld = self;
     _world->SetContactListener(l);
 }
 

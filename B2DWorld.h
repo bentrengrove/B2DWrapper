@@ -24,6 +24,7 @@
 - (void)destroyJoint:(B2DJoint*)joint;
 
 - (void)stepWithDeltaTime:(double)dT velocityIterations:(int)velocityIterations positionIterations:(int)positionIterations;
+- (B2DBody*)bodyForB2Body:(void*)b2Body;
 
 - (NSArray*)jointList;
 - (NSArray*)bodyList;

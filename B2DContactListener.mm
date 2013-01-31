@@ -8,6 +8,7 @@
 
 #import "B2DContactListener.h"
 #import "Box2D.h"
+#import "B2DWorld.h"
 
 #pragma mark - C++ Implementation
 
@@ -29,20 +30,28 @@ b2DInternalContactListener::b2DInternalContactListener( B2DContactListener *wrap
 void b2DInternalContactListener::BeginContact(b2Contact *contact)
 {
     if (_wrapper.beginContactBlock) {
-        void *userData1 = contact->GetFixtureA()->GetBody()->GetUserData();
-        void *userData2 = contact->GetFixtureB()->GetBody()->GetUserData();
+        b2Body *b2Body1 = contact->GetFixtureA()->GetBody();
+        b2Body *b2Body2 = contact->GetFixtureB()->GetBody();
         
-        _wrapper.beginContactBlock(userData1, userData2);
+        B2DWorld *world = _wrapper.physicsWorld;
+        B2DBody *body1 = [world bodyForB2Body:b2Body1];
+        B2DBody *body2 = [world bodyForB2Body:b2Body2];
+        
+        _wrapper.beginContactBlock(body1, body2);
     }
 }
 
 void b2DInternalContactListener::EndContact(b2Contact *contact)
 {
     if (_wrapper.endContactBlock) {
-        void *userData1 = contact->GetFixtureA()->GetBody()->GetUserData();
-        void *userData2 = contact->GetFixtureB()->GetBody()->GetUserData();
+        b2Body *b2Body1 = contact->GetFixtureA()->GetBody();
+        b2Body *b2Body2 = contact->GetFixtureB()->GetBody();
         
-        _wrapper.endContactBlock(userData1, userData2);
+        B2DWorld *world = _wrapper.physicsWorld;
+        B2DBody *body1 = [world bodyForB2Body:b2Body1];
+        B2DBody *body2 = [world bodyForB2Body:b2Body2];
+        
+        _wrapper.endContactBlock(body1, body2);
     }
 }
 

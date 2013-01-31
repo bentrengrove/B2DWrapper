@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "B2DFixture.h"
+#import "B2DBody.h"
 
-typedef void(^B2DContactListenerBlock)(void *userData1, void *userData2);
+typedef void(^B2DContactListenerBlock)(B2DBody *body1, B2DBody *body2);
 
+@class B2DWorld;
 @interface B2DContactListener : NSObject
 {
     
@@ -18,6 +20,7 @@ typedef void(^B2DContactListenerBlock)(void *userData1, void *userData2);
 
 @property (strong, nonatomic) B2DContactListenerBlock beginContactBlock;
 @property (strong, nonatomic) B2DContactListenerBlock endContactBlock;
+@property (weak, nonatomic) B2DWorld *physicsWorld;
 
 - (void*)internalListener;
 
