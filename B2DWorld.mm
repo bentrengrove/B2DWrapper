@@ -14,6 +14,7 @@
 {
     b2World *_world;
     NSMutableArray *_bodyList;
+    NSMutableArray *_bodiesToDestory;
     NSMutableArray *_jointList;
 }
 
@@ -29,6 +30,7 @@
         _world = new b2World(g);
         
         _bodyList = [NSMutableArray array];
+        _bodiesToDestory = [NSMutableArray array];
         _jointList = [NSMutableArray array];
     }
     return self;
@@ -64,12 +66,21 @@
     return objCBody;
 }
 
-- (void)destoryBody:(B2DBody*)body
+- (void)destoryBody:(B2DBody *)body
 {
-    b2Body *b = (b2Body*)[body b2Body];
-    _world->DestroyBody(b);
-    
-    [_bodyList removeObject:body];
+    [self destoryBody:body shouldDelayTillNextTick:NO];
+}
+
+- (void)destoryBody:(B2DBody*)body shouldDelayTillNextTick:(BOOL)delay
+{
+    if (!delay) {
+        b2Body *b = (b2Body*)[body b2Body];
+        _world->DestroyBody(b);
+        
+        [_bodyList removeObject:body];
+    } else{
+        [_bodiesToDestory addObject:body];
+    }
 }
 
 - (B2DJoint*)createJointOfType:(B2DJointType)type withDef:(const void *)voidDef
@@ -113,6 +124,13 @@
 
 - (void)stepWithDeltaTime:(double)dT velocityIterations:(int)velocityIterations positionIterations:(int)positionIterations
 {
+    if (_bodiesToDestory.count > 0) {
+        for (B2DBody *b in _bodiesToDestory) {
+            [self destoryBody:b];
+        }
+        [_bodiesToDestory removeAllObjects];
+    }
+
     _world->Step(dT, velocityIterations, positionIterations);
 }
 

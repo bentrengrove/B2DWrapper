@@ -70,6 +70,11 @@
     return _body->GetUserData();
 }
 
+- (void)setUserData:(void*)userData
+{
+    _body->SetUserData(userData);
+}
+
 - (B2DVec2)position
 {
     return B2DVec2Make(_body->GetPosition().x, _body->GetPosition().y);

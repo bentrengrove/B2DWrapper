@@ -20,6 +20,8 @@
 
 - (B2DBody*)createBody:(const B2DBodyDef *)bodyDef;
 - (void)destoryBody:(B2DBody*)body;
+- (void)destoryBody:(B2DBody*)body shouldDelayTillNextTick:(BOOL)delay;
+
 - (B2DJoint*)createJointOfType:(B2DJointType)type withDef:(const void *)voidDef;
 - (void)destroyJoint:(B2DJoint*)joint;
 

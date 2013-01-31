@@ -111,6 +111,8 @@ static inline B2DBodyDef B2DBodyDefInit()
 - (void)applyLinearImpulse:(B2DVec2)impulse toPoint:(B2DVec2)point;
 
 - (void*)userData;
+- (void)setUserData:(void*)userData;
+
 - (B2DVec2)position;
 - (double)angle;
 - (B2DVec2)worldCenter;
