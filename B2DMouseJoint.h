@@ -8,7 +8,7 @@
 
 #import "B2DJoint.h"
 #import "B2DTypes.h"
-#import "B2DBody.h"
+@class B2DBody;
 
 typedef struct m_B2DMouseJointDef
 {

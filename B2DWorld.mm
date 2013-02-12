@@ -9,6 +9,9 @@
 #import "B2DWorld.h"
 #import "B2DTypes.h"
 #include "B2DHelper.h"
+#import "B2DMouseJoint.h"
+#import "B2DRevoluteJoint.h"
+#import "B2DContactListener.h"
 
 @interface B2DWorld()
 {

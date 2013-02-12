@@ -19,6 +19,7 @@
 #import "B2DBody.h"
 #import "B2DRevoluteJoint.h"
 #import "B2DContactListener.h"
+#import "B2DMouseJoint.h"
 
 #endif
 

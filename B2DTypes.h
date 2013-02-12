@@ -14,6 +14,21 @@ typedef struct m_B2DVec2 {
     double y;
 } B2DVec2;
 
+typedef enum B2DJointType
+{
+	b2d_unknownJoint,
+	b2d_revoluteJoint,
+	b2d_prismaticJoint,
+	b2d_distanceJoint,
+	b2d_pulleyJoint,
+	b2d_mouseJoint,
+	b2d_gearJoint,
+	b2d_wheelJoint,
+    b2d_weldJoint,
+	b2d_frictionJoint,
+	b2d_ropeJoint
+} B2DJointType;
+
 static B2DVec2 B2DVec2Make(double x, double y);
 static inline B2DVec2 B2DVec2Make(double x, double y)
 {

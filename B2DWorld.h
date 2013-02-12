@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "B2DBody.h"
-#import "B2DRevoluteJoint.h"
-#import "B2DContactListener.h"
+#import "B2DTypes.h"
+
+@class B2DJoint;
+@class B2DContactListener;
 
 @interface B2DWorld : NSObject
 {
