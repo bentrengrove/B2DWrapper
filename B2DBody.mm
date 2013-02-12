@@ -29,15 +29,15 @@
     return self;
 }
 
-- (void)createFixture:(B2DFixtureDef)fixtureDef
+- (void)createFixture:(B2DFixtureDef*)fixtureDef
 {
     b2FixtureDef def;
-    def.shape = (const b2Shape*)[fixtureDef.shape b2Shape];
-    def.userData = fixtureDef.userData;
-    def.friction = fixtureDef.friction;
-    def.restitution = fixtureDef.restitution;
-    def.density = fixtureDef.density;
-    def.isSensor = fixtureDef.isSensor;
+    def.shape = (const b2Shape*)[fixtureDef->shape b2Shape];
+    def.userData = fixtureDef->userData;
+    def.friction = fixtureDef->friction;
+    def.restitution = fixtureDef->restitution;
+    def.density = fixtureDef->density;
+    def.isSensor = fixtureDef->isSensor;
     
     //TODO: Filter
     //def.filter = fixtureDef.filter;

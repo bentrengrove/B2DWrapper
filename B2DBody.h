@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "B2DTypes.h"
+#import "B2DTypes.h"
 #import "B2DFixture.h"
 
 typedef enum B2DBodyType
@@ -105,7 +105,7 @@ static inline B2DBodyDef B2DBodyDefInit()
 
 - (id)initWithB2Body:(void*)body;
 - (void*)b2Body;
-- (void)createFixture:(B2DFixtureDef)fixtureDef;
+- (void)createFixture:(B2DFixtureDef*)fixtureDef;
 - (void)applyForceToCenter:(B2DVec2)force;
 - (void)applyForce:(B2DVec2)force toPoint:(B2DVec2)point;
 - (void)applyLinearImpulse:(B2DVec2)impulse toPoint:(B2DVec2)point;
