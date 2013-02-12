@@ -88,9 +88,10 @@
 
 - (B2DJoint*)createJointOfType:(B2DJointType)type withDef:(const void *)voidDef
 {
-    b2RevoluteJointDef def;
     
+    b2Joint *joint;
     if (type == b2d_revoluteJoint) {
+		b2RevoluteJointDef def;
         B2DRevoluteJointDef *jointDef = (B2DRevoluteJointDef *)voidDef;
         def.type = (b2JointType)jointDef->type;
         def.bodyA = (b2Body*)[jointDef->bodyA b2Body];
@@ -105,13 +106,34 @@
         def.enableMotor = jointDef->enableMotor;
         def.motorSpeed = jointDef->motorSpeed;
         def.maxMotorTorque = jointDef->maxMotorTorque;
-    }
+		joint = _world->CreateJoint(&def);
+		B2DJoint *objCJoint = [[B2DJoint alloc] initWithB2Joint:joint];
+		[_jointList addObject:objCJoint];
+		
+		return objCJoint;
+		
+    } else if (type == b2d_mouseJoint) {
+		b2MouseJointDef def;
+		B2DMouseJointDef *jointDef = (B2DMouseJointDef *)voidDef;
+		def.type = (b2JointType)jointDef->type;
+		def.bodyA = (b2Body*)[jointDef->bodyA b2Body];
+        def.bodyB = (b2Body*)[jointDef->bodyB b2Body];
+		def.userData = jointDef->userData;
+		def.collideConnected = jointDef->collideConnected;
+		def.target = B2DVecToCPlusPlus(jointDef->target);
+		def.maxForce = jointDef->maxForce;
+		def.frequencyHz = jointDef->frequencyHz;
+		def.dampingRatio = jointDef->dampingRatio;
+		joint = _world->CreateJoint(&def);
+		B2DMouseJoint *objCJoint = [[B2DMouseJoint alloc] initWithB2Joint:joint];
+		[_jointList addObject:objCJoint];
+		
+		return objCJoint;
+	}
+	// type not handled
+	NSAssert(false, @"Type not handled");
+	return nil;
 
-    b2Joint *joint = _world->CreateJoint(&def);
-    B2DJoint *objCJoint = [[B2DJoint alloc] initWithB2Joint:joint];
-    [_jointList addObject:objCJoint];
-    
-    return objCJoint;
 }
 
 - (void)destroyJoint:(B2DJoint*)joint
