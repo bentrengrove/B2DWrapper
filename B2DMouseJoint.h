@@ -62,4 +62,6 @@ static inline B2DMouseJointDef B2DMouseJointDefInit()
 
 @interface B2DMouseJoint : B2DJoint
 
+- (void)setTarget:(B2DVec2 *)target;
+
 @end
