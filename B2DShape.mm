@@ -10,4 +10,9 @@
 
 @implementation B2DShape
 
+- (void*)b2Shape {
+	NSAssert(false, @"Abstract super class");
+	return nil;
+}
+
 @end
