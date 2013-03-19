@@ -12,7 +12,7 @@
 
 - (void*)b2Shape {
 	NSAssert(false, @"Abstract super class");
-	return nil;
+	return NULL;
 }
 
 @end
