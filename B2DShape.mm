@@ -10,4 +10,10 @@
 
 @implementation B2DShape
 
+- (void*)b2Shape
+{
+    NSAssert(0, @"Class is abstract");
+    return NULL;
+}
+
 @end
