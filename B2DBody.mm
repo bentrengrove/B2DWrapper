@@ -91,6 +91,11 @@
     return B2DVec2Make(center.x, center.y);
 }
 
+- (B2DVec2)localPointForWorldPoint:(B2DVec2)worldPoint {
+	b2Vec2 localPoint = _body->GetLocalPoint(B2DVecToCPlusPlus(worldPoint));
+	return B2DVec2Make(localPoint.x, localPoint.y);
+}
+
 - (void)dealloc
 {
     _body = NULL;
