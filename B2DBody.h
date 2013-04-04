@@ -103,6 +103,9 @@ static inline B2DBodyDef B2DBodyDefInit()
     
 }
 
+@property (readonly) float mass;
+@property (readonly) float angle;
+
 - (id)initWithB2Body:(void*)body;
 - (void*)b2Body;
 - (void)createFixture:(B2DFixtureDef*)fixtureDef;
@@ -114,7 +117,6 @@ static inline B2DBodyDef B2DBodyDefInit()
 - (void)setUserData:(void*)userData;
 
 - (B2DVec2)position;
-- (double)angle;
 - (B2DVec2)worldCenter;
 - (B2DVec2)localPointForWorldPoint:(B2DVec2)worldPoint;
 

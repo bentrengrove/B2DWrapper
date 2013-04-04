@@ -80,9 +80,13 @@
     return B2DVec2Make(_body->GetPosition().x, _body->GetPosition().y);
 }
 
-- (double)angle
+- (float)angle
 {
     return _body->GetAngle();
+}
+
+- (float)mass {
+	return _body->GetMass();
 }
 
 - (B2DVec2)worldCenter
