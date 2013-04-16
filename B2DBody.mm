@@ -100,6 +100,17 @@
 	return B2DVec2Make(localPoint.x, localPoint.y);
 }
 
+- (BOOL)containsPoint:(B2DVec2)point {
+	b2Fixture *fixture = _body->GetFixtureList();
+	do {
+		NSLog(@"%p", fixture);
+		if (fixture->TestPoint(B2DVecToCPlusPlus(point))) {
+			return YES;
+		}
+	} while ((fixture = fixture->GetNext()));
+	return NO;
+}
+
 - (void)dealloc
 {
     _body = NULL;

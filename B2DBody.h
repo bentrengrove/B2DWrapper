@@ -120,4 +120,6 @@ static inline B2DBodyDef B2DBodyDefInit()
 - (B2DVec2)worldCenter;
 - (B2DVec2)localPointForWorldPoint:(B2DVec2)worldPoint;
 
+- (BOOL)containsPoint:(B2DVec2)point;
+
 @end
