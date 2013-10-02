@@ -60,6 +60,11 @@
     _body->ApplyLinearImpulse(B2DVecToCPlusPlus(impulse), B2DVecToCPlusPlus(point));
 }
 
+- (void)applyAngularImpulse:(double)impulse
+{
+	_body->ApplyAngularImpulse(impulse);
+}
+
 - (void*)b2Body
 {
     return _body;

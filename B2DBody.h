@@ -112,6 +112,7 @@ static inline B2DBodyDef B2DBodyDefInit()
 - (void)applyForceToCenter:(B2DVec2)force;
 - (void)applyForce:(B2DVec2)force toPoint:(B2DVec2)point;
 - (void)applyLinearImpulse:(B2DVec2)impulse toPoint:(B2DVec2)point;
+- (void)applyAngularImpulse:(double)impulse;
 
 - (void*)userData;
 - (void)setUserData:(void*)userData;
